@@ -1,15 +1,14 @@
-arr = [3, 6, 7, 1, 5, 4]
+def select(list, k):
+    
+    for i in range(0, k):    # 범위가 k까지인 이유는 k번째로 작은 원소만 찾으면 되기 때문
+        min_index = i
+        for j in range(i+1, len(list)):
+            if list[min_index] > list[j]:
+                min_index = j
+        list[min_index], list[i] = list[i], list[min_index]
+    
+    return list[k-1]
 
-n = len(arr)
-subset_list =[]
-# << 비트 연산자는 왼쪽으로 쉬프트 한다는 것으로 왼쪽으로 쉬프트 할 경우 2배가 된다.
-for i in range(1<<n):    # 1<<n = 2의 n제곱 (1을 왼쪽으로 n만큼 쉬프트)
-    subset=[]
-    for j in range(n):
-        if i & (1<<j):
-            subset.append(arr[j])
-    subset_list.append(subset)
-
-print(subset_list)
-
+list = [10, 25, 64, 22, 11]
+print(select(list, 4))    # 25
             
