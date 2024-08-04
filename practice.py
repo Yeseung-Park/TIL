@@ -1,11 +1,11 @@
-def strlen(str):
-    idx = 0
-    count = 0
-    while str[idx] != '\0':
-        idx += 1
-        count += 1
-    return count
+arr = [[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]]
 
-a = ['a', 'b', 'c', '\0']
-
-print(strlen(a))
+for i in range (0, len(arr)):
+    if i%2 == 0:
+        for j in range(0, len(arr[0])):
+            print(arr[i][j], end = "")
+    else:
+        for j in range(len(arr[0])-1, -1, -1):
+            print(arr[i][j], end = "")
