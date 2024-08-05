@@ -1,11 +1,24 @@
-arr = [[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]]
+def f(t, p):
+    N = len(t)
+    M = len(p)
+    i = 0
+    j = 0
+    count = 0
 
-for i in range (0, len(arr)):
-    if i%2 == 0:
-        for j in range(0, len(arr[0])):
-            print(arr[i][j], end = "")
+    while i < N and j < M:
+        if t[i] == p[j]:
+            i += 1
+            j += 1
+        else:
+            i = i-j+1
+            j = 0
+    if j == M:
+        count += 1
     else:
-        for j in range(len(arr[0])-1, -1, -1):
-            print(arr[i][j], end = "")
+        return -1
+    return count
+
+t = 'TTTTABCATTABCDE'
+p = 'TTA'
+
+print(f(t, p))
