@@ -1,24 +1,11 @@
-def f(t, p):
-    N = len(t)
-    M = len(p)
-    i = 0
-    j = 0
-    count = 0
-
-    while i < N and j < M:
-        if t[i] == p[j]:
-            i += 1
-            j += 1
-        else:
-            i = i-j+1
-            j = 0
-    if j == M:
-        count += 1
+def f(i, N, v):    # v: 찾고자 하는 값
+    if i == N:    # 끝까지 찾았는데 없으면 0을 반환
+        return 0
+    elif arr[i] == v:    # 찾으면 1을 반환
+        return 1
     else:
-        return -1
-    return count
+        return f(i+1, N, v)    # 다음 요소에 대해서 또 함수 진행
 
-t = 'TTTTABCATTABCDE'
-p = 'TTA'
-
-print(f(t, p))
+arr = [1, 2, 3, 4]
+print(f(0, 4, 3))    # 1
+print(f(0, 4, 5))    # 0
