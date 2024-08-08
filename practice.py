@@ -1,10 +1,32 @@
-def fibo(n):
-    f = [0]*(n+1)
-    f[0] = 0
-    f[1] = 1
-    for i in range(2, n+1):
-        f[i] = f[i-1]+f[i-2]
-    
-    return f[n]
+def calculate():
+    num2 = stack.pop()
+    num1 = stack.pop()
 
-print(fibo(7))    # 13
+    return num1, num2
+
+postfix = ['6', '5', '2', '8', '-', '*', '2', '/', '+']
+stack = []
+
+for token in postfix:
+    if token.isdecimal():
+        stack.append(int(token))
+    else:
+        if token == '-':
+            num1, num2 = calculate()
+            temp = num1 - num2
+            stack.append(temp)
+        elif token == '+':
+            num1, num2 = calculate()
+            temp = num1 + num2
+            stack.append(temp)
+        elif token == '*':
+            num1, num2 = calculate()
+            temp = num1 * num2
+            stack.append(temp)
+        else:
+            num1, num2 = calculate()
+            temp = num1 / num2
+            stack.append(temp)
+
+result = stack.pop()
+print(result)
