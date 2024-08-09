@@ -1,32 +1,9 @@
-def calculate():
-    num2 = stack.pop()
-    num1 = stack.pop()
+# 순열 만들기
 
-    return num1, num2
+def f(i, N):
+    if i == N:
+        for j in range(N):
+            if bit
+P = [1, 2, 3]
+N = len(P)
 
-postfix = ['6', '5', '2', '8', '-', '*', '2', '/', '+']
-stack = []
-
-for token in postfix:
-    if token.isdecimal():
-        stack.append(int(token))
-    else:
-        if token == '-':
-            num1, num2 = calculate()
-            temp = num1 - num2
-            stack.append(temp)
-        elif token == '+':
-            num1, num2 = calculate()
-            temp = num1 + num2
-            stack.append(temp)
-        elif token == '*':
-            num1, num2 = calculate()
-            temp = num1 * num2
-            stack.append(temp)
-        else:
-            num1, num2 = calculate()
-            temp = num1 / num2
-            stack.append(temp)
-
-result = stack.pop()
-print(result)
